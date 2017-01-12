@@ -17,8 +17,6 @@ export const fromNullable = x =>
   (isNull(x) ? Left : Right)(x)
 
 export const Right = x => ({
-  of: x => Right(x),
-
   chain: f => f(x),
   map: f => Right(f(x)),
   fold: (f, g) => g(x),
@@ -29,8 +27,6 @@ export const Right = x => ({
 Right.of = x => Right(x)
 
 export const Left = x => ({
-  of: x => Left(x),
-
   chain: f => Left(x),
   map: f => Left(x),
   fold: (f, g) => f(x),
@@ -40,7 +36,6 @@ export const Left = x => ({
 
 Left.of = x => Left(x)
 
-
 export const Either = ({
   fromNullable,
   Left,
@@ -48,7 +43,6 @@ export const Either = ({
 })
 
 export const Maybe = x => ({
-  of: x => Maybe(x),
   chain: f => isNull(x) ? Maybe(x) : f(x),
   map: f => isNull(x) ? Maybe(x) : Maybe(f(x)),
   fold: f => f(x),
@@ -58,12 +52,10 @@ export const Maybe = x => ({
 
 Maybe.of = x => Maybe(x)
 
-export const List = x => {
-  x.__proto__.head = () => (x || []).slice(0, 1);
-  x.__proto__.tail = () => (x || [0]).slice(1);
-  x.__proto__.fold = f => isNull(f) ? x.slice(0, 1) : f(x.slice(0, 1));
-  return x
-}
-
-Array.of = x => Array(x)
-
+export const List = x => ({
+  head: () => x.slice(0, 1),
+  tail: () => x.slice(1),
+  fold: (f) => isNull(f) ? x.slice(0, 1) : f(x.slice(0, 1)),
+  concat: x.concat,
+  of: x => List(x)
+})

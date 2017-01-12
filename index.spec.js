@@ -1,6 +1,7 @@
-console.log('hello lets test some stuff');
 import assert from 'assert'
 import { Just, Either, Right, Left, Maybe, fromNullable, List } from './index'
+
+console.log('hello lets test some stuff');
 
 Just('Simon')
   .map(x => x.toUpperCase())
@@ -59,13 +60,9 @@ assert.equal(tail.length, 2)
 assert.equal(tail[0], 2)
 assert.equal(tail[1], 3)
 
-
 assert.equal(list.fold(), 1)
 assert.equal(list.fold(x => x * 2), 2)
 
-console.log(list.concat([5]))
-
-
-
+assert(list.concat([5]))
 
 console.log('whoah! all tests are done.');
