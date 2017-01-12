@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { Just, Either, Right, Left, Maybe, fromNullable, List } from './index'
+import { Just, Either, Right, Left, Maybe, fromNullable, FrozenArray } from './index'
 
 console.log('hello lets test some stuff');
 
@@ -46,34 +46,34 @@ assert.equal(Right('Simon').inspect(), 'Right(Simon)')
 assert.equal(Left('Simon').inspect(), 'Left(Simon)')
 assert.equal(Maybe('Simon').inspect(), 'Maybe(Simon)')
 
-const list = List([1, 2, 3])
+const frozenArray = FrozenArray([1, 2, 3])
 
-const head = list.head()
+const head = frozenArray.head()
 
 assert.equal(head.length, 1)
 assert.equal(head.fold(x => x), 1)
 
-const tail = list.tail();
+const tail = frozenArray.tail();
 
 assert.equal(Array.isArray(tail), false)
 assert.equal(tail.length, 2)
 assert.equal(tail.fold(), 2)
 assert.equal(tail.nth(1), 3)
 
-assert.equal(list.length, 3)
-assert.equal(list.fold(x => x * 2), 2)
+assert.equal(frozenArray.length, 3)
+assert.equal(frozenArray.fold(x => x * 2), 2)
 
-assert.equal(List.of([1, 2, 3]).every(x => x < 4), true)
-assert.equal(List.of([1, 2, 3]).filter(x => x < 2).length, 1)
-assert.equal(List.of([1, 2, 3]).includes(2), true)
-assert.equal(List.of([1, 2, 3]).indexOf(2), 1)
-assert.equal(List.of([1, 2, 3, 3, 3, 3]).lastIndexOf(3), 5)
-assert.equal(List.of([1, 2, 3]).inspect(), 'List([1,2,3])')
-assert.equal(List.of([1, 2, 3]).join(), '1,2,3')
-assert.equal(List.of([1, 2, 3]).map(x => x * 2).inspect(), 'List([2,4,6])')
-assert.equal(List.of([1, 2, 3]).some(x => x === 3), true)
-assert.equal(List.of([1, 2, 3]).slice(0)(1).inspect(), 'List([1])')
+assert.equal(FrozenArray.of([1, 2, 3]).every(x => x < 4), true)
+assert.equal(FrozenArray.of([1, 2, 3]).filter(x => x < 2).length, 1)
+assert.equal(FrozenArray.of([1, 2, 3]).includes(2), true)
+assert.equal(FrozenArray.of([1, 2, 3]).indexOf(2), 1)
+assert.equal(FrozenArray.of([1, 2, 3, 3, 3, 3]).lastIndexOf(3), 5)
+assert.equal(FrozenArray.of([1, 2, 3]).inspect(), 'FrozenArray([1,2,3])')
+assert.equal(FrozenArray.of([1, 2, 3]).join(), '1,2,3')
+assert.equal(FrozenArray.of([1, 2, 3]).map(x => x * 2).inspect(), 'FrozenArray([2,4,6])')
+assert.equal(FrozenArray.of([1, 2, 3]).some(x => x === 3), true)
+assert.equal(FrozenArray.of([1, 2, 3]).slice(0)(1).inspect(), 'FrozenArray([1])')
 
-assert.equal(list.concat([5]).length, 4)
+assert.equal(frozenArray.concat([5]).length, 4)
 
 console.log('whoah! all tests are done.')

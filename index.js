@@ -66,52 +66,52 @@ export const Maybe = x => ({
 // Any -> Maybe
 Maybe.of = x => Maybe(x)
 
-// Array -> List
-export const List = array =>
-  Just(array)
+// Array -> FrozenArray
+export const FrozenArray = array =>
+  Just(array || [])
     .map(Object.freeze)
     .fold(frozenArray => ({
-      // head :: -> List
-      head: () => List(frozenArray.slice(0, 1)),
-      // tail :: -> List
-      tail: () => List(frozenArray.slice(1)),
+      // head :: -> FrozenArray
+      head: () => FrozenArray(frozenArray.slice(0, 1)),
+      // tail :: -> FrozenArray
+      tail: () => FrozenArray(frozenArray.slice(1)),
       // fold :: f -> Any
       fold: f => isFunction(f) ? f(frozenArray.slice(0, 1)[0]) : frozenArray.slice(0, 1)[0],
       // nth :: Number -> Any
       nth: x => frozenArray[x],
-      // concat :: List -> List
-      concat: list => List(frozenArray.concat(list)),
+      // concat :: FrozenArray -> FrozenArray
+      concat: y => FrozenArray(frozenArray.concat(y)),
       // length :: -> Number
       length: frozenArray.length,
       // every :: f -> Boolean
       every: f => frozenArray.every(f),
-      // filter :: f -> List
-      filter: f => List(frozenArray.filter(f)),
+      // filter :: f -> FrozenArray
+      filter: f => FrozenArray(frozenArray.filter(f)),
       // includes :: Object -> Boolean
       includes: f => frozenArray.includes(f),
       // indexOf :: Object -> Number
       indexOf: f => frozenArray.indexOf(f),
       // inspect :: f -> String
-      inspect: () => `List([${frozenArray}])`,
+      inspect: () => `FrozenArray([${frozenArray}])`,
       // join :: f -> String
       join: f => frozenArray.join(f),
-      // lastIndexOf :: f -> List
+      // lastIndexOf :: f -> FrozenArray
       lastIndexOf: f => frozenArray.lastIndexOf(f),
-      // map :: f -> List
-      map: f => List(frozenArray.map(f)),
+      // map :: f -> FrozenArray
+      map: f => FrozenArray(frozenArray.map(f)),
       // reduce :: f -> Any
       reduce: f => frozenArray.reduce(f),
       // reduceRight :: f -> Any
       reduceRight: f => frozenArray.reduceRight(f),
-      // reverse :: -> List
-      reverse: () => List(frozenArray.reverse()),
-      // slice :: Number -> (Number -> List)
-      slice: begin => end => List(frozenArray.slice(begin, end)),
+      // reverse :: -> FrozenArray
+      reverse: () => FrozenArray(frozenArray.reverse()),
+      // slice :: Number -> (Number -> FrozenArray)
+      slice: begin => end => FrozenArray(frozenArray.slice(begin, end)),
       // some :: f -> Boolean
       some: f => frozenArray.some(f),
-      // Array -> List
-      of: array => List(array)
+      // Array -> FrozenArray
+      of: array => FrozenArray(array)
     }))
 
-// Array -> List
-List.of = array => List(array)
+// Array -> FrozenArray
+FrozenArray.of = array => FrozenArray(array)
