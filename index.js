@@ -1,9 +1,14 @@
-// value -> Boolean
+// Any -> Boolean
+const isFunction =
+  func =>
+    !!(func && func.constructor && func.call && func.apply)
+
+// Any -> Boolean
 const isNull =
   value =>
     value === null || value === undefined
 
-// x -> Just
+// Any -> Just
 export const Just = x => ({
   chain: f => f(x),
   map: f => Just(f(x)),
@@ -11,14 +16,14 @@ export const Just = x => ({
   inspect: () => `Just(${x})`
 })
 
-// x -> Just
+// Any -> Just
 Just.of = x => Just(x)
 
 // x -> Left|Right
 export const fromNullable = x =>
   (isNull(x) ? Left : Right)(x)
 
-// x -> Right
+// Any -> Right
 export const Right = x => ({
   chain: f => f(x),
   map: f => Right(f(x)),
@@ -27,10 +32,10 @@ export const Right = x => ({
   inspect: () => `Right(${x})`
 })
 
-// x -> Right
+// Any -> Right
 Right.of = x => Right(x)
 
-// x -> Left
+// Any -> Left
 export const Left = x => ({
   chain: f => Left(x),
   map: f => Left(x),
@@ -39,17 +44,17 @@ export const Left = x => ({
   inspect: () => `Left(${x})`
 })
 
-// x -> Left
+// Any -> Left
 Left.of = x => Left(x)
 
-// -> Either
+// Either
 export const Either = ({
   fromNullable,
   Left,
   Right,
 })
 
-// x -> Maybe
+// Any -> Maybe
 export const Maybe = x => ({
   chain: f => isNull(x) ? Maybe(x) : f(x),
   map: f => isNull(x) ? Maybe(x) : Maybe(f(x)),
@@ -58,7 +63,7 @@ export const Maybe = x => ({
   inspect: () => `Maybe(${x})`
 })
 
-// x -> Maybe
+// Any -> Maybe
 Maybe.of = x => Maybe(x)
 
 // Array -> List
@@ -70,40 +75,40 @@ export const List = array =>
       head: () => List(frozenArray.slice(0, 1)),
       // tail :: -> List
       tail: () => List(frozenArray.slice(1)),
-      // fold :: f -> ?
-      fold: f => isNull(f) ? frozenArray.slice(0, 1) : f(frozenArray.slice(0, 1)),
-      // nth :: Number -> ?
+      // fold :: f -> Any
+      fold: f => isFunction(f) ? f(frozenArray.slice(0, 1)[0]) : frozenArray.slice(0, 1)[0],
+      // nth :: Number -> Any
       nth: x => frozenArray[x],
       // concat :: List -> List
       concat: list => List(frozenArray.concat(list)),
       // length :: -> Number
       length: frozenArray.length,
       // every :: f -> Boolean
-      every: frozenArray.every,
+      every: f => frozenArray.every(f),
       // filter :: f -> List
       filter: f => List(frozenArray.filter(f)),
       // includes :: Object -> Boolean
-      includes: frozenArray.includes,
+      includes: f => frozenArray.includes(f),
       // indexOf :: Object -> Number
-      indexOf: frozenArray.indexOf,
+      indexOf: f => frozenArray.indexOf(f),
       // inspect :: f -> String
       inspect: () => `List([${frozenArray}])`,
       // join :: f -> String
-      join: frozenArray.join,
+      join: f => frozenArray.join(f),
       // lastIndexOf :: f -> List
-      lastIndexOf: frozenArray.lastIndexOf,
+      lastIndexOf: f => frozenArray.lastIndexOf(f),
       // map :: f -> List
       map: f => List(frozenArray.map(f)),
-      // reduce :: f -> ?
-      reduce: frozenArray.reduce,
-      // reduceRight :: f -> ?
-      reduceRight: frozenArray.reduceRight,
+      // reduce :: f -> Any
+      reduce: f => frozenArray.reduce(f),
+      // reduceRight :: f -> Any
+      reduceRight: f => frozenArray.reduceRight(f),
       // reverse :: -> List
       reverse: () => List(frozenArray.reverse()),
       // slice :: Number -> (Number -> List)
       slice: begin => end => List(frozenArray.slice(begin, end)),
       // some :: f -> Boolean
-      some: frozenArray.some,
+      some: f => frozenArray.some(f),
       // Array -> List
       of: array => List(array)
     }))
