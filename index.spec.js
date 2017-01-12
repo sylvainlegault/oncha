@@ -48,21 +48,21 @@ assert.equal(Maybe('Simon').inspect(), 'Maybe(Simon)')
 
 const list = List([1, 2, 3])
 
-const head = list.head();
-assert.equal(Array.isArray(head), true)
+const head = list.head()
+
 assert.equal(head.length, 1)
-assert.equal(head[0], 1)
+assert.equal(head.fold(x=>x), 1)
 
 const tail = list.tail();
 
-assert.equal(Array.isArray(tail), true)
+assert.equal(Array.isArray(tail), false)
 assert.equal(tail.length, 2)
-assert.equal(tail[0], 2)
-assert.equal(tail[1], 3)
+assert.equal(tail.fold(), 2)
+assert.equal(tail.nth(1), 3)
 
-assert.equal(list.fold(), 1)
+assert.equal(list.length, 3)
 assert.equal(list.fold(x => x * 2), 2)
 
-assert(list.concat([5]))
+assert.equal(list.concat([5]).length, 4)
 
-console.log('whoah! all tests are done.');
+console.log('whoah! all tests are done.')
