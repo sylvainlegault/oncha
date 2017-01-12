@@ -71,7 +71,7 @@ export const List = array =>
       // tail :: -> List
       tail: () => List(frozenArray.slice(1)),
       // fold :: f -> ?
-      fold: (f) => isNull(f) ? frozenArray.slice(0, 1) : f(frozenArray.slice(0, 1)),
+      fold: f => isNull(f) ? frozenArray.slice(0, 1) : f(frozenArray.slice(0, 1)),
       // nth :: Number -> ?
       nth: x => frozenArray[x],
       // concat :: List -> List
@@ -82,12 +82,12 @@ export const List = array =>
       every: frozenArray.every,
       // filter :: f -> List
       filter: f => List(frozenArray.filter(f)),
-      // includes :: f -> Boolean
+      // includes :: Object -> Boolean
       includes: frozenArray.includes,
-      // indexOf :: f -> Number
+      // indexOf :: Object -> Number
       indexOf: frozenArray.indexOf,
       // inspect :: f -> String
-      inspect: () => `List(${frozenArray})`,
+      inspect: () => `List([${frozenArray}])`,
       // join :: f -> String
       join: frozenArray.join,
       // lastIndexOf :: f -> List

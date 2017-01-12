@@ -51,7 +51,7 @@ const list = List([1, 2, 3])
 const head = list.head()
 
 assert.equal(head.length, 1)
-assert.equal(head.fold(x=>x), 1)
+assert.equal(head.fold(x => x), 1)
 
 const tail = list.tail();
 
@@ -62,6 +62,15 @@ assert.equal(tail.nth(1), 3)
 
 assert.equal(list.length, 3)
 assert.equal(list.fold(x => x * 2), 2)
+
+assert.equal(List.of([1, 2, 3]).every(x => x < 4), true)
+// assert.equal(List.of([1, 2, 3]).filter(x => x < 2).length, 1)
+// assert.equal(List.of([1, 2, 3]).includes(2), true)
+// assert.equal(List.of([1, 2, 3]).indexOf(2), 1)
+// assert.equal(List.of([1, 2, 3, 3, 3, 3]).lastIndexOf(2), 5)
+assert.equal(List.of([1, 2, 3]).inspect(), 'List([1,2,3])')
+// assert.equal(List.of([1, 2, 3]).join(), '1,2,3')
+assert.equal(List.of([1, 2, 3]).map(x=> x * 2).map(console.log).join(','), '2,4,5')
 
 assert.equal(list.concat([5]).length, 4)
 
