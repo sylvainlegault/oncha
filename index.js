@@ -19,7 +19,7 @@ export const Just = x => ({
 // Any -> Just
 Just.of = x => Just(x)
 
-// x -> Left|Right
+// Any -> Left|Right
 export const fromNullable = x =>
   (isNull(x) ? Left : Right)(x)
 
