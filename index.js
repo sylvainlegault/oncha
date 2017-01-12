@@ -59,7 +59,7 @@ export const Maybe = x => ({
   chain: f => isNull(x) ? Maybe(x) : f(x),
   map: f => isNull(x) ? Maybe(x) : Maybe(f(x)),
   fold: f => f(x),
-  else: f => isNull(x) ? f(x) : Maybe(x),
+  else: f => isNull(x) ? Maybe(f()) : Maybe(x),
   inspect: () => `Maybe(${x})`
 })
 
