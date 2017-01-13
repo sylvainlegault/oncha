@@ -5,7 +5,7 @@
   "author": "Simon Deshaies (pre63)",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/.bin/babel-node index.spec.js"
+    "test": "./node_modules/.bin/babel-node specs/index.js"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
