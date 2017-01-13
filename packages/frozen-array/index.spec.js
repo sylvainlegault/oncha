@@ -1,7 +1,7 @@
 import assert from 'assert'
 import { FrozenArray } from '../FrozenArray'
 
-console.log('hello lets test some stuff');
+console.log('hello lets test some stuff')
 
 const frozenArray = FrozenArray([1, 2, 3])
 
@@ -10,7 +10,7 @@ const head = frozenArray.head()
 assert.equal(head.length, 1)
 assert.equal(head.fold(x => x), 1)
 
-const tail = frozenArray.tail();
+const tail = frozenArray.tail()
 
 assert.equal(Array.isArray(tail), false)
 assert.equal(tail.length, 2)

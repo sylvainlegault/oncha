@@ -1,7 +1,7 @@
 import assert from 'assert'
 import { Either, Right, Left } from '../Either'
 
-console.log('hello lets test some stuff');
+console.log('hello lets test some stuff')
 
 fromNullable(null)
   .map(x => assert(false))
@@ -16,11 +16,11 @@ fromNullable('Simon')
 
 Either
   .fromNullable({ ok: true, code: 200, body: 'yay!' })
-  .fold(x => x, x => assert.equal(x.code, 200));
+  .fold(x => x, x => assert.equal(x.code, 200))
 
 Either
   .fromNullable(null)
-  .fold(x => assert.equal(x, null), x => assert(false));
+  .fold(x => assert.equal(x, null), x => assert(false))
 
 fromNullable('Simon')
   .chain(Just.of)
