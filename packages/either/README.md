@@ -1,2 +1,2 @@
-# ऊंचा Oncha
-A modular javascript monadic library.
+# ऊंचा Oncha Either
+A Either monad implementation, includes Left, Rignt, fromNullable .

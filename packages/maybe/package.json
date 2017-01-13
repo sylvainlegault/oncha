@@ -1,5 +1,6 @@
 {
   "name": "oncha.maybe",
+  "description": "ऊंचा Oncha's Maybe module.",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Oncha contributors",
