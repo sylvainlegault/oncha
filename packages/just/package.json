@@ -1,11 +1,12 @@
 {
-  "name": "lift-fantasy",
+  "name": "oncha.just",
+  "description": "ऊंचा Oncha's Just module.",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Simon Deshaies (pre63)",
+  "author": "Oncha contributors",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/.bin/babel-node specs/index.js"
+    "test": "./node_modules/.bin/babel-node index.spec.js"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
