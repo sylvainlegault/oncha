@@ -1,3 +1,3 @@
-Simon Deshaies
-Ysael Pepin
-Guillaume martin
+Simon Deshaies,
+Ysael Pepin,
+Guillaume martin,
