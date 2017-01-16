@@ -1,5 +1,5 @@
 import Id from './Id'
-import isNull from './isNull'
+import isNull from './is-null'
 
 // Nothing :: _ -> Nothing
 const Nothing = () => ({

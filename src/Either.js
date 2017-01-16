@@ -1,4 +1,4 @@
-import isNull from './isNull'
+import isNull from './is-null'
 
 // fromNullable :: Any -> Left | Right
 export const fromNullable = x =>
