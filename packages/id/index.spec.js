@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { Id } from '../Id'
+import Id from './index'
 
 console.log('A Id')
 

@@ -1,5 +1,12 @@
 import assert from 'assert'
-import { Either, Right, Left } from '../Either'
+import Either from './index'
+const { Right, Left, fromNullable } = Either
+
+const Id = x => ({
+  fold: f => f(x),
+})
+
+Id.of = x => Id(x)
 
 console.log('hello lets test some stuff')
 
@@ -23,7 +30,7 @@ Either
   .fold(x => assert.equal(x, null), x => assert(false))
 
 fromNullable('Simon')
-  .chain(Just.of)
+  .chain(Id.of)
   .fold(x => assert.equal(x, 'Simon'))
 
 assert.equal(Right('Simon').inspect(), 'Right(Simon)')

@@ -1,5 +1,5 @@
 import assert from 'assert'
-import { FrozenArray } from '../FrozenArray'
+import FrozenArray from './index'
 
 console.log('hello lets test some stuff')
 
