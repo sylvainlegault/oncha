@@ -4,11 +4,5 @@
   "version": "0.0.1",
   "main": "index.js",
   "author": "Oncha contributors",
-  "license": "MIT",
-  "scripts": {
-    "build": "./node_modules/.bin/webpack ../../src/Either.js index.js"
-  },
-  "devDependencies": {
-    "webpack": "2.2.0-rc.5"
-  }
+  "license": "MIT"
 }
