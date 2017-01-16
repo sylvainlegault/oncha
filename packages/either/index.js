@@ -84,12 +84,12 @@ const isNull =
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__isNull__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__is_null__ = __webpack_require__(0);
 
 
 // fromNullable :: Any -> Left | Right
 const fromNullable = x =>
-  (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__isNull__["a" /* default */])(x) ? Left : Right)(x)
+  (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__is_null__["a" /* default */])(x) ? Left : Right)(x)
 /* harmony export (immutable) */ __webpack_exports__["fromNullable"] = fromNullable;
 
 

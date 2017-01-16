@@ -108,7 +108,7 @@ const isNull =
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Id__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__isNull__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__is_null__ = __webpack_require__(1);
 
 
 
@@ -129,7 +129,7 @@ const Nothing = () => ({
 // Maybe :: Any -> Maybe
 const Maybe = x =>
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__Id__["a" /* default */])(x)
-    .map(__WEBPACK_IMPORTED_MODULE_1__isNull__["a" /* default */])
+    .map(__WEBPACK_IMPORTED_MODULE_1__is_null__["a" /* default */])
     .fold(nulled => nulled
       ? Nothing()
       : ({
