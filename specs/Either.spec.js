@@ -1,5 +1,5 @@
 import assert from 'assert'
-import Either from './index'
+import Either from '../src/Either'
 const { Right, Left, fromNullable } = Either
 
 const Id = x => ({

@@ -1,5 +1,5 @@
 import assert from 'assert'
-import Maybe from './index'
+import Maybe from '../src/Maybe'
 
 console.log('A Maybe')
 
