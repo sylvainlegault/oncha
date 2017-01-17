@@ -1,5 +1,5 @@
 # ऊंचा Oncha
-A modular javascript monadic library.
+A modular exalted javascript monadic library.
 
 ## Road Map
 - add fantasy land specs
