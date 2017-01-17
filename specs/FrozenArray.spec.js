@@ -8,17 +8,18 @@ const frozenArray = FrozenArray([1, 2, 3])
 const head = frozenArray.head()
 
 assert.equal(head.length, 1)
-assert.equal(head.fold(x => x), 1)
+assert.equal(head.foldh(x => x), 1)
 
 const tail = frozenArray.tail()
 
 assert.equal(Array.isArray(tail), false)
 assert.equal(tail.length, 2)
-assert.equal(tail.fold(), 2)
+assert.equal(tail.foldh(), 2)
 assert.equal(tail.nth(1), 3)
 
 assert.equal(frozenArray.length, 3)
-assert.equal(frozenArray.fold(x => x * 2), 2)
+assert.equal(frozenArray.foldh(x => x * 2), 2)
+assert.equal(frozenArray.inspect(), 'FrozenArray([1,2,3])')
 
 assert.equal(FrozenArray.of([1, 2, 3]).every(x => x < 4), true)
 assert.equal(FrozenArray.of([1, 2, 3]).filter(x => x < 2).length, 1)

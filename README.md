@@ -1,5 +1,5 @@
 # ऊंचा Oncha
-A modular exalted javascript monadic library.
+A modular exalted javascript monadic library & functional fun.
 
 ## Road Map
 - add fantasy land specs
@@ -8,7 +8,7 @@ A modular exalted javascript monadic library.
 
 ## TODO
 - add travisci/circleci integration
-- build on successful test, and publish to npm
+- on successful tests publish to npm
 
 ## IMPORTANT
 Do not use MAJOR and MINOR, only increment the PATCH for versionning of packages

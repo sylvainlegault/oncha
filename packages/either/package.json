@@ -3,6 +3,12 @@
   "description": "ऊंचा Oncha's Either module.",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Oncha contributors",
-  "license": "MIT"
+  "author": "Simon Deshaies",
+  "license": "MIT",
+  "contributors": [
+    "Aldo",
+    "Simon Deshaies",
+    "Ysael Pepin",
+    "Guillaume Martin"
+  ]
 }

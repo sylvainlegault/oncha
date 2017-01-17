@@ -3,12 +3,12 @@
   "description": "ऊंचा Oncha's FrozenArray module.",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Oncha contributors",
+  "author": "Simon Deshaies",
   "license": "MIT",
-  "scripts": {
-    "build": "./node_modules/.bin/webpack ../../src/FrozenArray.js index.js"
-  },
-  "devDependencies": {
-    "webpack": "2.2.0-rc.5"
-  }
+  "contributors": [
+    "Aldo",
+    "Simon Deshaies",
+    "Ysael Pepin",
+    "Guillaume Martin"
+  ]
 }

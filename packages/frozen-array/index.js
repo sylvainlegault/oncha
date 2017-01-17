@@ -112,8 +112,10 @@ const FrozenArray = array =>
       head: () => FrozenArray(frozenArray.slice(0, 1)),
       // tail :: Nothing -> FrozenArray
       tail: () => FrozenArray(frozenArray.slice(1)),
-      // fold :: ƒ -> Any
-      fold: f => isFunction(f) ? f(frozenArray.slice(0, 1)[0]) : frozenArray.slice(0, 1)[0],
+      // fold :: ƒ -> Array
+      fold: f => isFunction(f) ? f(frozenArray) : frozenArray,
+      // foldh :: ƒ -> Any
+      foldh: f => isFunction(f) ? f(frozenArray.slice(0, 1)[0]) : frozenArray.slice(0, 1)[0],
       // nth :: Number -> Any
       nth: x => frozenArray[x],
       // concat :: FrozenArray -> FrozenArray

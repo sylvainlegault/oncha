@@ -1,13 +1,19 @@
 {
   "name": "oncha",
-  "description": "ऊंचा Oncha functional fun.",
+  "description": "ऊंचा Oncha :: A modular exalted javascript monadic library & functional fun.",
   "version": "0.0.1",
   "private": true,
   "main": "index.js",
-  "author": "Oncha contributors",
+  "author": "Simon Deshaies",
   "license": "MIT",
+  "contributors": [
+    "Aldo",
+    "Simon Deshaies",
+    "Ysael Pepin",
+    "Guillaume Martin"
+  ],
   "scripts": {
-    "test": "./node_modules/.bin/babel-node specs/index",
+    "test": "./node_modules/.bin/babel-node specs/index && yarn build",
     "build":"yarn build:either && yarn build:frozen-array && yarn build:id && yarn build:maybe",
     "build:either":"./node_modules/.bin/webpack src/Either.js packages/either/index.js",
     "build:frozen-array":"./node_modules/.bin/webpack src/FrozenArray.js packages/frozen-array/index.js",
