@@ -19,7 +19,7 @@
     "build:either": "./node_modules/.bin/webpack src/Either.js packages/either/index.js",
     "build:frozen-array": "./node_modules/.bin/webpack src/FrozenArray.js packages/frozen-array/index.js",
     "build:id": "./node_modules/.bin/webpack src/Id.js packages/id/index.js",
-    "build:maybe": "./node_modules/.bin/webpack src/maybe.js packages/maybe/index.js",
+    "build:maybe": "./node_modules/.bin/webpack src/Maybe.js packages/maybe/index.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
