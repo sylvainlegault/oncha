@@ -82,7 +82,7 @@ const Id = x => ({
   // of :: Any -> Id
   of: x => Id(x),
   // inspect :: Nothing -> String
-  inspect: () => `Id(${x})`
+  inspect: () => `Id(${x})`,
 })
 
 // of :: Any -> Id
@@ -103,6 +103,7 @@ const isNull =
 
 /* harmony default export */ __webpack_exports__["a"] = isNull;
 
+
 /***/ }),
 /* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -117,9 +118,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 // Nothing :: _ -> Nothing
 const Nothing = () => ({
   // chain :: ƒ -> Nothing
-  chain: f => Nothing(),
+  chain: () => Nothing(),
   // map :: ƒ -> Nothing
-  map: f => Nothing(),
+  map: () => Nothing(),
   // else :: ƒ -> Maybe
   else: f => Maybe(f()),
   // fold :: ƒ -> Any
@@ -127,7 +128,7 @@ const Nothing = () => ({
   // Any -> Maybe
   of: x => Maybe(x),
   // inspect :: ƒ -> String
-  inspect: () => `Nothing()`
+  inspect: () => 'Nothing()',
 })
 
 // Maybe :: Any -> Maybe
@@ -144,17 +145,18 @@ const Maybe = x =>
         // fold :: ƒ -> Any
         fold: f => f(x),
         // else :: ƒ -> Maybe
-        else: f => Maybe(x),
+        else: () => Maybe(x),
         // Any -> Maybe
         of: x => Maybe(x),
         // inspect :: Nothing -> String
-        inspect: () => `Maybe(${x})`
+        inspect: () => `Maybe(${x})`,
       }))
 
 // Any -> Maybe
 Maybe.of = x => Maybe(x)
 
 /* harmony default export */ __webpack_exports__["default"] = Maybe;
+
 
 /***/ })
 /******/ ]);

@@ -78,6 +78,7 @@ const isNull =
 
 /* harmony default export */ __webpack_exports__["a"] = isNull;
 
+
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -104,7 +105,7 @@ const Right = x => ({
   // fromNullable :: Any -> Left | Right
   fromNullable,
   // inspect :: Nothing -> String
-  inspect: () => `Right(${x})`
+  inspect: () => `Right(${x})`,
 })
 /* harmony export (immutable) */ __webpack_exports__["Right"] = Right;
 
@@ -117,13 +118,13 @@ const Left = x => ({
   // chain :: ƒ -> Monad
   chain: f => f(x),
   // map :: ƒ -> Left
-  map: f => Left(x),
+  map: () => Left(x),
   // fold :: (ƒ, ƒ) -> Any
-  fold: (f, g) => f(x),
+  fold: f => f(x),
   // fromNullable :: Any -> Left | Right
   fromNullable,
   // inspect :: Nothing -> String
-  inspect: () => `Left(${x})`
+  inspect: () => `Left(${x})`,
 })
 /* harmony export (immutable) */ __webpack_exports__["Left"] = Left;
 
@@ -141,6 +142,7 @@ const Either = ({
 
 
 /* harmony default export */ __webpack_exports__["default"] = Either;
+
 
 /***/ })
 /******/ ]);

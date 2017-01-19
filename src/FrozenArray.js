@@ -51,7 +51,7 @@ const FrozenArray = array =>
       // some :: ƒ -> Boolean
       some: f => frozenArray.some(f),
       // of :: Array -> FrozenArray
-      of: array => FrozenArray(array)
+      of: array => FrozenArray(array),
     }))
 
 // Array -> FrozenArray

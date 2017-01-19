@@ -82,7 +82,7 @@ const Id = x => ({
   // of :: Any -> Id
   of: x => Id(x),
   // inspect :: Nothing -> String
-  inspect: () => `Id(${x})`
+  inspect: () => `Id(${x})`,
 })
 
 // of :: Any -> Id
@@ -151,13 +151,14 @@ const FrozenArray = array =>
       // some :: ƒ -> Boolean
       some: f => frozenArray.some(f),
       // of :: Array -> FrozenArray
-      of: array => FrozenArray(array)
+      of: array => FrozenArray(array),
     }))
 
 // Array -> FrozenArray
 FrozenArray.of = array => FrozenArray(array)
 
 /* harmony default export */ __webpack_exports__["default"] = FrozenArray;
+
 
 /***/ })
 /******/ ]);
