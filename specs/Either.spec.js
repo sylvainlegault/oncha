@@ -15,25 +15,30 @@ describe('A Either', () => {
       .map(x => assert(false))
       .map(x => assert(true))
   })
+
   it('should return x with code 200', () => {
     Either
       .fromNullable({ ok: true, code: 200, body: 'yay!' })
       .fold(x => x, x => assert.equal(x.code, 200))
   })
+
   it('should fold left', () => {
     Either
       .fromNullable(null)
       .fold(x => assert.equal(x, null), x => assert(false))
   })
-  it('should not call the map function when created from nullable', () => {
+
+  it('should chain to Id', () => {
     fromNullable('Simon')
       .chain(Id.of)
       .fold(x => assert.equal(x, 'Simon'))
   })
-  it('should not call the map function when created from nullable', () => {
+
+  it('should build right', () => {
     assert.equal(Right('Simon').inspect(), 'Right(Simon)')
   })
-  it('should not call the map function when created from nullable', () => {
+
+  it('should build left', () => {
     assert.equal(Left('Simon').inspect(), 'Left(Simon)')
   })
 })
