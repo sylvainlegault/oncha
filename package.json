@@ -14,14 +14,21 @@
   ],
   "scripts": {
     "test": "yarn test:quick && yarn build",
-    "test:quick": "./node_modules/.bin/mocha --compilers js:mocha-traceur specs/index.js",
+    "test:quick": "./node_modules/.bin/eslint . && ./node_modules/.bin/mocha --compilers js:mocha-traceur specs/index.js",
     "build": "yarn build:either && yarn build:frozen-array && yarn build:id && yarn build:maybe",
     "build:either": "./node_modules/.bin/webpack src/Either.js packages/either/index.js",
     "build:frozen-array": "./node_modules/.bin/webpack src/FrozenArray.js packages/frozen-array/index.js",
     "build:id": "./node_modules/.bin/webpack src/Id.js packages/id/index.js",
-    "build:maybe": "./node_modules/.bin/webpack src/maybe.js packages/maybe/index.js"
+    "build:maybe": "./node_modules/.bin/webpack src/maybe.js packages/maybe/index.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb": "^14.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.9.0",
     "mocha": "^3.2.0",
     "mocha-traceur": "^2.1.0",
     "traceur": "^0.0.111",

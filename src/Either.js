@@ -15,7 +15,7 @@ export const Right = x => ({
   // fromNullable :: Any -> Left | Right
   fromNullable,
   // inspect :: Nothing -> String
-  inspect: () => `Right(${x})`
+  inspect: () => `Right(${x})`,
 })
 
 // of :: Any -> Right
@@ -26,13 +26,13 @@ export const Left = x => ({
   // chain :: ƒ -> Monad
   chain: f => f(x),
   // map :: ƒ -> Left
-  map: f => Left(x),
+  map: () => Left(x),
   // fold :: (ƒ, ƒ) -> Any
-  fold: (f, g) => f(x),
+  fold: f => f(x),
   // fromNullable :: Any -> Left | Right
   fromNullable,
   // inspect :: Nothing -> String
-  inspect: () => `Left(${x})`
+  inspect: () => `Left(${x})`,
 })
 
 // of :: Any -> Left

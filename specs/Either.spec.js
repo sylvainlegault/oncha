@@ -1,6 +1,5 @@
 import assert from 'assert'
-import Either from '../src/Either'
-const { Right, Left, fromNullable } = Either
+import { Either, Right, Left, fromNullable } from '../src/Either'
 
 const Id = x => ({
   fold: f => f(x),
@@ -11,9 +10,9 @@ Id.of = x => Id(x)
 describe('A Either', () => {
   it('should not call the map function when created from nullable', () => {
     fromNullable(null)
-      .map(x => assert(false))
-      .map(x => assert(false))
-      .map(x => assert(true))
+      .map(() => assert(false))
+      .map(() => assert(false))
+      .map(() => assert(true))
   })
 
   it('should return x with code 200', () => {
@@ -25,7 +24,7 @@ describe('A Either', () => {
   it('should fold left', () => {
     Either
       .fromNullable(null)
-      .fold(x => assert.equal(x, null), x => assert(false))
+      .fold(x => assert.equal(x, null), () => assert(false))
   })
 
   it('should chain to Id', () => {

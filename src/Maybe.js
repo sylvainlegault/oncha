@@ -4,9 +4,9 @@ import isNull from './is-null'
 // Nothing :: _ -> Nothing
 const Nothing = () => ({
   // chain :: ƒ -> Nothing
-  chain: f => Nothing(),
+  chain: () => Nothing(),
   // map :: ƒ -> Nothing
-  map: f => Nothing(),
+  map: () => Nothing(),
   // else :: ƒ -> Maybe
   else: f => Maybe(f()),
   // fold :: ƒ -> Any
@@ -14,7 +14,7 @@ const Nothing = () => ({
   // Any -> Maybe
   of: x => Maybe(x),
   // inspect :: ƒ -> String
-  inspect: () => `Nothing()`
+  inspect: () => 'Nothing()',
 })
 
 // Maybe :: Any -> Maybe
@@ -31,11 +31,11 @@ const Maybe = x =>
         // fold :: ƒ -> Any
         fold: f => f(x),
         // else :: ƒ -> Maybe
-        else: f => Maybe(x),
+        else: () => Maybe(x),
         // Any -> Maybe
         of: x => Maybe(x),
         // inspect :: Nothing -> String
-        inspect: () => `Maybe(${x})`
+        inspect: () => `Maybe(${x})`,
       }))
 
 // Any -> Maybe
