@@ -13,7 +13,8 @@
     "Guillaume Martin"
   ],
   "scripts": {
-    "test": "./node_modules/.bin/babel-node specs/index && yarn build",
+    "test": "yarn test:quick && yarn build",
+    "test:quick": "./node_modules/.bin/mocha --compilers js:mocha-traceur specs/index.js",
     "build": "yarn build:either && yarn build:frozen-array && yarn build:id && yarn build:maybe",
     "build:either": "./node_modules/.bin/webpack src/Either.js packages/either/index.js",
     "build:frozen-array": "./node_modules/.bin/webpack src/FrozenArray.js packages/frozen-array/index.js",
@@ -21,8 +22,9 @@
     "build:maybe": "./node_modules/.bin/webpack src/maybe.js packages/maybe/index.js"
   },
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
+    "mocha": "^3.2.0",
+    "mocha-traceur": "^2.1.0",
+    "traceur": "^0.0.111",
     "webpack": "2.2.0-rc.5"
   }
 }

@@ -1,0 +1,282 @@
+import { selectCategoryVariables } from './category-variables';
+import { GTM_PAGE_TYPE_LANDING } from './common';
+
+describe('selectCategoryVariables', () => {
+  it('figures out the category ID based on the URL and the menus', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '220',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+    };
+
+    expect(selectCategoryVariables(store).page_id).to.eql('220');
+  });
+
+  it('the sort order is RELEVANCE', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '212',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+      products: {
+        pagination: {
+          sort: 'relevance',
+        },
+      },
+    };
+
+    expect(selectCategoryVariables(store).filter.sort_by).eql('RELEVANCE');
+  });
+
+  it('the sort order is OLDEST', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '212',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+      products: {
+        sortBy: 'oldestProducts',
+        pagination: {
+          sort: 'relevance',
+        },
+      },
+    };
+
+    expect(selectCategoryVariables(store).filter.sort_by).eql('OLDEST');
+  });
+
+  it('the sort order is OLDEST', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '212',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+      products: {
+        sortBy: 'oldestProducts',
+      },
+    };
+
+    expect(selectCategoryVariables(store).filter.sort_by).eql('OLDEST');
+  });
+
+  it('the sort order is an empty string', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '212',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+    };
+    expect(selectCategoryVariables(store).filter.sort_by).eql('');
+  });
+
+  it('gets me referrer info if it exists', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      navHistory: {
+        elements: [
+          { pathname: '/ca/en/men/footwear', key: 'foo1' },
+          { pathname: '/ca/en/men/footwear/boots', key: 'foo2' }],
+        current: 'foo2',
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '220',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+    };
+
+    expect(selectCategoryVariables(store).referral).to.eql(GTM_PAGE_TYPE_LANDING);
+    expect(selectCategoryVariables(store).referral_details).to.eql('MEN/FOOTWEAR');
+  });
+
+  it('reports PLP filter data', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en/men/footwear/boots',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+      cms: {
+        menus: {
+          primary: [{
+            contents: {
+              categories: [{
+                categoryId: '210',
+                url: '/men/footwear',
+                subcategories: [{
+                  categoryId: '212',
+                  url: '/men/footwear/boots',
+                }],
+              }],
+            },
+          }],
+        },
+      },
+      products: {
+        pagination: {
+          sort: 'relevance',
+        },
+        gridControls: {
+          appliedFilters: [
+            { key: 'soleDescriptionFacet', name: 'Sole', value: 'Rubber' },
+            { key: 'soleDescriptionFacet', name: 'Sole', value: 'Synthetic' },
+            { key: 'colourDescriptionFacet', name: 'Colour', value: 'BLUE' }],
+        },
+      },
+    };
+
+    expect(selectCategoryVariables(store).filter).to.eql({
+      soleDescriptionFacet: 'RUBBER,SYNTHETIC',
+      colourDescriptionFacet: 'BLUE',
+      sort_by: 'RELEVANCE',
+    });
+  });
+
+  it('doesn\'t include this stuff for a non-category page', () => {
+    const store = {
+      routing: {
+        locationBeforeTransitions: {
+          pathname: '/ca/en',
+        },
+      },
+      site: {
+        region: { code: 'ca' },
+        language: { code: 'en' },
+      },
+    };
+
+    expect(selectCategoryVariables(store).page_id).to.be.undefined;
+    expect(selectCategoryVariables(store).referral).to.be.undefined;
+    expect(selectCategoryVariables(store).referral_details).to.be.undefined;
+    expect(selectCategoryVariables(store).filter).to.be.undefined;
+  });
+});

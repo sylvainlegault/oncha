@@ -8,32 +8,32 @@ const Id = x => ({
 
 Id.of = x => Id(x)
 
-console.log('hello lets test some stuff')
-
-fromNullable(null)
-  .map(x => assert(false))
-  .map(x => assert(false))
-  .map(x => assert(true))
-
-fromNullable('Simon')
-  .map(x => x)
-  .map(x => x)
-  .map(x => x)
-  .map(x => assert.equal(x, 'Simon'))
-
-Either
-  .fromNullable({ ok: true, code: 200, body: 'yay!' })
-  .fold(x => x, x => assert.equal(x.code, 200))
-
-Either
-  .fromNullable(null)
-  .fold(x => assert.equal(x, null), x => assert(false))
-
-fromNullable('Simon')
-  .chain(Id.of)
-  .fold(x => assert.equal(x, 'Simon'))
-
-assert.equal(Right('Simon').inspect(), 'Right(Simon)')
-assert.equal(Left('Simon').inspect(), 'Left(Simon)')
-
-console.log('whoah! all tests are done.')
+describe('A Either', () => {
+  it('should not call the map function when created from nullable', () => {
+    fromNullable(null)
+      .map(x => assert(false))
+      .map(x => assert(false))
+      .map(x => assert(true))
+  })
+  it('should return x with code 200', () => {
+    Either
+      .fromNullable({ ok: true, code: 200, body: 'yay!' })
+      .fold(x => x, x => assert.equal(x.code, 200))
+  })
+  it('should fold left', () => {
+    Either
+      .fromNullable(null)
+      .fold(x => assert.equal(x, null), x => assert(false))
+  })
+  it('should not call the map function when created from nullable', () => {
+    fromNullable('Simon')
+      .chain(Id.of)
+      .fold(x => assert.equal(x, 'Simon'))
+  })
+  it('should not call the map function when created from nullable', () => {
+    assert.equal(Right('Simon').inspect(), 'Right(Simon)')
+  })
+  it('should not call the map function when created from nullable', () => {
+    assert.equal(Left('Simon').inspect(), 'Left(Simon)')
+  })
+})
