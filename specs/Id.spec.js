@@ -15,4 +15,37 @@ describe('A Id', () => {
   it('inspect will format a correct Id', () => {
     assert.equal(Id('Simon').inspect(), 'Id(Simon)')
   })
-})
+
+  it('will be exactly 11', () =>
+    assert(Id(11).fold(x => x) === 11))
+
+  it('will be exactly 12 when map is called', () => {
+    const value = Id(11).map(value => value + 1).fold(x => x);
+    assert(value === 12);
+  });
+
+  it('will be exactly 13 when bind is called', () => {
+    const value = Id(12).chain(value => Id(value + 1)).fold(x => x);
+    assert(value === 13);
+  });
+
+  it('will be exactly 12 when chain is called', () => {
+    const value = Id(12).chain(value => Id(value)).fold(x => x);
+    assert(value === 12);
+  });
+
+  it('will be exactly 12 after chain', () => {
+    const value = Id(12).chain(value => Id(value)).fold(x => x);
+    assert(value === 12);
+  });
+
+  it('Id.of || pure, shoud be 12', () => {
+    const value = Id(17).of(12).fold(x => x);
+    assert(value === 12);
+  });
+
+  it('Id.chain, shoud be 12', () => {
+    const value = Id(Id(12)).chain(x => x).fold(x => x);
+    assert(value === 12);
+  });
+});
