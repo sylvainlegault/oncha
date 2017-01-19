@@ -12,6 +12,9 @@
     "Ysael Pepin",
     "Guillaume Martin"
   ],
+  "engines": {
+    "node": ">=6"
+  },
   "scripts": {
     "test": "yarn test:quick && yarn build",
     "test:quick": "./node_modules/.bin/eslint . && ./node_modules/.bin/mocha --compilers js:mocha-traceur specs/index.js",
