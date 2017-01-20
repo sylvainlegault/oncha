@@ -1,5 +1,28 @@
 import assert from 'assert'
 import Id from '../src/Id'
+import { identity, composition } from '../laws/functor'
+
+describe('A Id', () => {
+  it('is an identity', () =>
+    identity(Id.of)
+      ((a, b) => assert(a.inspect() === b.inspect()))
+      ('Functional fun!'))
+
+  it('is composable', () =>
+    composition(Id.of)
+      ((a, b) => assert(a.inspect() === b.inspect()))
+      (x => x)
+      (x => x)
+      ('Functional fun!'))
+
+  it('can do maths', () =>
+    composition(Id.of)
+      ((a, b) => assert(a.inspect() === b.inspect()))
+      (x => x * 2)
+      (x => x * 7)
+      (3))
+})
+
 
 describe('A Id', () => {
   it('will map to uppercase', () => {

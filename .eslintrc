@@ -8,6 +8,10 @@
     "no-sequences": 0,
     "no-undef": 0,
     "no-confusing-arrow": 0,
-    "no-named-as-default":0
+    "no-named-as-default": 0,
+    "import/prefer-default-export": 0,
+    "func-call-spacing": 0,
+    "no-spaced-func": 0,
+    "no-unexpected-multiline": 0
   }
 }
