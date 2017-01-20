@@ -1,30 +1,28 @@
 import assert from 'assert'
 import Id from '../src/Id'
 import { identity, composition } from '../laws/functor'
+import { associativity } from '../laws/chain'
 
 describe('A Id', () => {
-  it('is an identity', () =>
-    identity(Id.of)
-      ((a, b) => assert(a.inspect() === b.inspect()))
-      ('Functional fun!'))
 
-  it('is composable', () =>
-    composition(Id.of)
-      ((a, b) => assert(a.inspect() === b.inspect()))
-      (x => x)
-      (x => x)
-      ('Functional fun!'))
+  describe('as a monad', () => {
+    const eq =
+      (a, b) => (console.log(a, b),
+        assert(a.inspect() === b.inspect()))
 
-  it('can do maths', () =>
-    composition(Id.of)
-      ((a, b) => assert(a.inspect() === b.inspect()))
-      (x => x * 2)
-      (x => x * 7)
-      (3))
-})
+    it('is an identity', () =>
+      identity(Id.of)(eq)('Functional fun!'))
 
+    it('is composable', () =>
+      composition(Id.of)(eq)(x => x)(x => x)('Functional fun!'))
 
-describe('A Id', () => {
+    it('can do maths', () =>
+      composition(Id.of)(eq)(x => x * 2)(x => x * 7)(3))
+
+    it('is associative', () =>
+      associativity(Id)(eq)(7))
+  })
+
   it('will map to uppercase', () => {
     Id('Simon')
       .map(x => x.toUpperCase())

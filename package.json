@@ -17,7 +17,8 @@
   },
   "scripts": {
     "test": "yarn lint && yarn test:quick && yarn build",
-    "test:quick": "./node_modules/.bin/mocha --compilers js:mocha-traceur specs/index.js",
+    "test:quick": "./node_modules/.bin/mocha --compilers js:mocha-traceur **/*.spec.js",
+    "test:watch": "./node_modules/.bin/mocha -w --compilers js:mocha-traceur **/*.spec.js",
     "build": "yarn build:either && yarn build:frozen-array && yarn build:id && yarn build:maybe",
     "build:either": "./node_modules/.bin/webpack src/Either.js packages/either/index.js",
     "build:frozen-array": "./node_modules/.bin/webpack src/FrozenArray.js packages/frozen-array/index.js",

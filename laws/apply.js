@@ -7,8 +7,8 @@ const compose =
 // identity :: Any -> Any
 const identity = a => a
 
-// composition :: ƒ -> (ƒ -> ( -> Boolean))
-export const composition =
+// apply :: ƒ -> (ƒ -> ( -> Boolean))
+export const apply =
   t =>
     eq =>
       () =>
