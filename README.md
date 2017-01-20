@@ -9,7 +9,6 @@ A modular exalted javascript monadic library & functional fun.
 - add future monad
 
 ## TODO
-- add travisci/circleci integration
 - on successful tests publish to npm
 
 ## IMPORTANT
