@@ -81,7 +81,7 @@ const Id = x => ({
   fold: f => f(x),
   // of :: Any -> Id
   of: x => Id(x),
-  // inspect :: Nothing -> String
+  // inspect :: -> String
   inspect: () => `Id(${x})`,
 })
 
@@ -148,7 +148,7 @@ const Maybe = x =>
         else: () => Maybe(x),
         // Any -> Maybe
         of: x => Maybe(x),
-        // inspect :: Nothing -> String
+        // inspect :: -> String
         inspect: () => `Maybe(${x})`,
       }))
 

@@ -104,7 +104,7 @@ const Right = x => ({
   fold: (f, g) => g(x),
   // fromNullable :: Any -> Left | Right
   fromNullable,
-  // inspect :: Nothing -> String
+  // inspect :: -> String
   inspect: () => `Right(${x})`,
 })
 /* harmony export (immutable) */ __webpack_exports__["Right"] = Right;
@@ -123,7 +123,7 @@ const Left = x => ({
   fold: f => f(x),
   // fromNullable :: Any -> Left | Right
   fromNullable,
-  // inspect :: Nothing -> String
+  // inspect :: -> String
   inspect: () => `Left(${x})`,
 })
 /* harmony export (immutable) */ __webpack_exports__["Left"] = Left;

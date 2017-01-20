@@ -34,7 +34,7 @@ const Maybe = x =>
         else: () => Maybe(x),
         // Any -> Maybe
         of: x => Maybe(x),
-        // inspect :: Nothing -> String
+        // inspect :: -> String
         inspect: () => `Maybe(${x})`,
       }))
 

@@ -81,7 +81,7 @@ const Id = x => ({
   fold: f => f(x),
   // of :: Any -> Id
   of: x => Id(x),
-  // inspect :: Nothing -> String
+  // inspect :: -> String
   inspect: () => `Id(${x})`,
 })
 
@@ -110,9 +110,9 @@ const FrozenArray = array =>
   __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__Id__["a" /* default */])(array || [])
     .map(Object.freeze)
     .chain(frozenArray => ({
-      // head :: Nothing -> FrozenArray
+      // head :: -> FrozenArray
       head: () => FrozenArray(frozenArray.slice(0, 1)),
-      // tail :: Nothing -> FrozenArray
+      // tail :: -> FrozenArray
       tail: () => FrozenArray(frozenArray.slice(1)),
       // fold :: ƒ -> Array
       fold: f => isFunction(f) ? f(frozenArray) : frozenArray,
@@ -122,8 +122,8 @@ const FrozenArray = array =>
       nth: x => frozenArray[x],
       // concat :: FrozenArray -> FrozenArray
       concat: y => FrozenArray(frozenArray.concat(y)),
-      // length :: Number
-      length: frozenArray.length,
+      // length :: -> Number
+      length: () => frozenArray.length,
       // every :: ƒ -> Boolean
       every: f => frozenArray.every(f),
       // filter :: ƒ -> FrozenArray
@@ -132,7 +132,7 @@ const FrozenArray = array =>
       includes: f => frozenArray.includes(f),
       // indexOf :: Object -> Number
       indexOf: f => frozenArray.indexOf(f),
-      // inspect :: Nothing -> String
+      // inspect :: -> String
       inspect: () => `FrozenArray([${frozenArray}])`,
       // join :: ƒ -> String
       join: f => frozenArray.join(f),
@@ -144,7 +144,7 @@ const FrozenArray = array =>
       reduce: f => frozenArray.reduce(f),
       // reduceRight :: ƒ -> Any
       reduceRight: f => frozenArray.reduceRight(f),
-      // reverse :: Nothing -> FrozenArray
+      // reverse :: -> FrozenArray
       reverse: () => FrozenArray(frozenArray.reverse()),
       // slice :: Number -> (Number -> FrozenArray)
       slice: begin => end => FrozenArray(frozenArray.slice(begin, end)),
