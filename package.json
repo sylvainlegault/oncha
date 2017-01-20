@@ -16,7 +16,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "yarn lint && yarn test:quick && yarn build",
+    "test": "yarn lint && yarn test:quick",
     "test:quick": "./node_modules/.bin/mocha --compilers js:mocha-traceur **/*.spec.js",
     "test:watch": "./node_modules/.bin/mocha -w --compilers js:mocha-traceur **/*.spec.js",
     "build": "yarn build:either && yarn build:frozen-array && yarn build:id && yarn build:maybe",
