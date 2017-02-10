@@ -3,7 +3,12 @@
 # ऊंचा Oncha
 A modular exalted javascript monadic library & functional fun.
 
-## All the things that cat me contributed to
+## All the things that cats can contributed to
+- meow
+- lick paws
+- sleep
+
+## and for humans
 - add laws, for functor, monad, monoid, semigroup, etc.
 - add specs for the laws foreach module
 - add oncha.io
