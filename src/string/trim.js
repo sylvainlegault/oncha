@@ -1,4 +1,5 @@
-import safe from 'safe'
+import compose from 'compose'
+import parse from 'string/parse'
 
 // trim :: String -> (String -> String)
-export default safe(s => s.trim())
+export default compose (s => s.trim(), parse)

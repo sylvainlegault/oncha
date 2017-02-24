@@ -80,13 +80,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ 1:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+// parse :: Any -> String
+/* harmony default export */ __webpack_exports__["default"] = (s = '') => String(s);
+
+
+/***/ }),
+
 /***/ 18:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_compose__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_string_parse__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_string_parse__ = __webpack_require__(1);
 
 
 
@@ -95,17 +106,6 @@ const lastIndexOf = searchString => str => str.lastIndexOf(searchString)
 
 // lastIndexOf :: String -> (String -> String)
 /* harmony default export */ __webpack_exports__["default"] = searchString => __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_compose__["default"])(lastIndexOf(searchString), __WEBPACK_IMPORTED_MODULE_1_string_parse__["default"]);
-
-
-/***/ }),
-
-/***/ 2:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// parse :: Any -> String
-/* harmony default export */ __webpack_exports__["default"] = (s = '') => String(s);
 
 
 /***/ })

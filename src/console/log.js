@@ -1,6 +1,12 @@
-import Id from 'id'
+import compose from 'compose'
+
+const log = args => (console.log(...args), args) // eslint-disable-line
+
+const firstOrArgsArray = args => args.length === 1 ? args[0] : args
+
+const undefinedOrArgsArray = args => args.length === 0 ? args[0] : args
+
+const returnArgs = compose(undefinedOrArgsArray, firstOrArgsArray, log)
+
 // log :: ...Any -> Any
-export default (...args) =>
-  Id((console.log(...args), args)) // eslint-disable-line
-    .map(args => args.length === 1 ? args[0] : args)
-    .fold(args => args.length === 0 ? args[0] : args)
+export default (...args) => returnArgs(args)

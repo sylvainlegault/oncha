@@ -1,11 +1,14 @@
 import assert from 'assert'
-import Id from '../../package/id'
-import trim from '../../package/string/split'
+import compose from '../../package/compose'
+import split from '../../package/string/split'
 
 describe('A split', () => {
   it('shoud be hello world', () =>
-    Id('hello world')
-      .map(trim(' '))
-      .map(a => a[0] === 'hello')
-      .map(assert))
+    compose(assert, a => a[0] === 'hello', split(' '))('hello world'))
+
+  it('shoud be empty', () =>
+    compose(assert, Array.isArray, split('d'))('   '))
+
+  it('shoud be empty', () =>
+    compose(assert, Array.isArray, split('d'))())
 })

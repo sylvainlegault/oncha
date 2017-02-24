@@ -20,6 +20,7 @@
     "test:specs": "./node_modules/.bin/mocha --recursive --compilers js:mocha-traceur specs/**",
     "test:watch": "./node_modules/.bin/mocha --recursive -w --compilers js:mocha-traceur specs/**",
     "build": "./node_modules/.bin/webpack",
+    "build:watch": "./node_modules/.bin/webpack --watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

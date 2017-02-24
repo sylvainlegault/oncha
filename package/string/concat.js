@@ -83,8 +83,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// safe :: ƒ -> (Any -> Any)
-/* harmony default export */ __webpack_exports__["default"] = func => x => x && func(x);
+// parse :: Any -> String
+/* harmony default export */ __webpack_exports__["default"] = (s = '') => String(s);
 
 
 /***/ }),
@@ -93,8 +93,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// parse :: Any -> String
-/* harmony default export */ __webpack_exports__["default"] = (s = '') => String(s);
+// safe :: ƒ -> (Any -> Any)
+/* harmony default export */ __webpack_exports__["default"] = func => x => x && func(x);
 
 
 /***/ }),
@@ -104,7 +104,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_safe__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_safe__ = __webpack_require__(2);
 
 
 // map :: ƒ -> ([Any] -> [Any])
@@ -128,7 +128,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_compose__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_map__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_string_parse__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_string_parse__ = __webpack_require__(1);
 
 
 

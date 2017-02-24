@@ -69,31 +69,13 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ 3:
+/***/ 0:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// Id :: Any -> Id
-const Id = x => ({
-  // chain :: ƒ -> Monad
-  chain: f => f(x),
-  // map :: ƒ -> Id
-  map: f => Id(f(x)),
-  // fold :: ƒ -> Any
-  fold: f => f(x),
-  // ap :: ƒ -> Any
-  ap: f => x(f),
-  // of :: Any -> Id
-  of: x => Id(x),
-  // inspect :: -> String
-  inspect: () => `Id(${x})`,
-})
-
-// of :: Any -> Id
-Id.of = x => Id(x)
-
-/* harmony default export */ __webpack_exports__["default"] = Id;
+// compose :: ... -> (Any -> Any)
+/* harmony default export */ __webpack_exports__["default"] = (...args) => a => args.reduceRight((acc, func) => func(acc), a);
 
 
 /***/ }),
@@ -103,13 +85,19 @@ Id.of = x => Id(x)
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_id__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_compose__ = __webpack_require__(0);
+
+
+const log = args => (console.log(...args), args) // eslint-disable-line
+
+const firstOrArgsArray = args => args.length === 1 ? args[0] : args
+
+const undefinedOrArgsArray = args => args.length === 0 ? args[0] : args
+
+const returnArgs = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_compose__["default"])(undefinedOrArgsArray, firstOrArgsArray, log)
 
 // log :: ...Any -> Any
-/* harmony default export */ __webpack_exports__["default"] = (...args) =>
-  __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_id__["default"])((console.log(...args), args)) // eslint-disable-line
-    .map(args => args.length === 1 ? args[0] : args)
-    .fold(args => args.length === 0 ? args[0] : args);
+/* harmony default export */ __webpack_exports__["default"] = (...args) => returnArgs(args);
 
 
 /***/ })

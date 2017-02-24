@@ -1,4 +1,5 @@
-import safe from 'safe'
+import compose from 'compose'
+import parse from 'string/parse'
 
 // split :: String -> (String -> String)
-export default c => safe(s => s.split(c))
+export default c => compose(s => s.split(c), parse)

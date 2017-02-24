@@ -69,13 +69,24 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ 0:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+// compose :: ... -> (Any -> Any)
+/* harmony default export */ __webpack_exports__["default"] = (...args) => a => args.reduceRight((acc, func) => func(acc), a);
+
+
+/***/ }),
+
 /***/ 1:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-// safe :: ƒ -> (Any -> Any)
-/* harmony default export */ __webpack_exports__["default"] = func => x => x && func(x);
+// parse :: Any -> String
+/* harmony default export */ __webpack_exports__["default"] = (s = '') => String(s);
 
 
 /***/ }),
@@ -85,11 +96,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_safe__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_compose__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_string_parse__ = __webpack_require__(1);
+
 
 
 // trim :: String -> (String -> String)
-/* harmony default export */ __webpack_exports__["default"] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_safe__["default"])(s => s.trim());
+/* harmony default export */ __webpack_exports__["default"] = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_compose__["default"]) (s => s.trim(), __WEBPACK_IMPORTED_MODULE_1_string_parse__["default"]);
 
 
 /***/ })
