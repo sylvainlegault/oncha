@@ -12,6 +12,9 @@
     "import/prefer-default-export": 0,
     "func-call-spacing": 0,
     "no-spaced-func": 0,
-    "no-unexpected-multiline": 0
+    "no-unexpected-multiline": 0,
+    "import/no-unresolved": 0,
+    "import/no-extraneous-dependencies": 0,
+    "import/extensions":0
   }
 }

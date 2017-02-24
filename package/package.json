@@ -1,0 +1,14 @@
+{
+  "name": "oncha",
+  "description": "ऊंचा Oncha - A modular exalted javascript monadic library. ",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Simon Deshaies",
+  "license": "MIT",
+  "contributors": [
+    "Aldo",
+    "Simon Deshaies",
+    "Ysael Pepin",
+    "Guillaume Martin"
+  ]
+}

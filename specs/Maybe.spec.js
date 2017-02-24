@@ -1,5 +1,5 @@
 import assert from 'assert'
-import Maybe from '../src/Maybe'
+import Maybe from '../package/maybe'
 
 describe('A Maybe', () => {
   it('assert inspect will return a formatted maybe', () =>

@@ -1,5 +1,5 @@
 import assert from 'assert'
-import FrozenArray from '../src/FrozenArray'
+import FrozenArray from '../package/frozenArray'
 
 const frozenArray = FrozenArray([1, 2, 3])
 const head = frozenArray.head()

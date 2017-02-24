@@ -1,7 +1,8 @@
 import assert from 'assert'
-import Id from '../src/Id'
-import { identity, composition } from '../laws/functor'
-import { associativity } from '../laws/chain'
+import Id from '../package/id'
+
+import { identity, composition } from '../src/laws/functor'
+import { associativity } from '../src/laws/chain'
 
 describe('A Id', () => {
   describe('as a monad', () => {

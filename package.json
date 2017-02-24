@@ -16,14 +16,10 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "yarn lint && yarn test:quick",
-    "test:quick": "./node_modules/.bin/mocha --compilers js:mocha-traceur **/*.spec.js",
-    "test:watch": "./node_modules/.bin/mocha -w --compilers js:mocha-traceur **/*.spec.js",
-    "build": "yarn build:either && yarn build:frozen-array && yarn build:id && yarn build:maybe",
-    "build:either": "./node_modules/.bin/webpack src/Either.js packages/either/index.js",
-    "build:frozen-array": "./node_modules/.bin/webpack src/FrozenArray.js packages/frozen-array/index.js",
-    "build:id": "./node_modules/.bin/webpack src/Id.js packages/id/index.js",
-    "build:maybe": "./node_modules/.bin/webpack src/Maybe.js packages/maybe/index.js",
+    "test": "yarn lint && yarn build && yarn test:specs",
+    "test:specs": "./node_modules/.bin/mocha --recursive --compilers js:mocha-traceur specs/**",
+    "test:watch": "./node_modules/.bin/mocha --recursive -w --compilers js:mocha-traceur specs/**",
+    "build": "./node_modules/.bin/webpack",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },

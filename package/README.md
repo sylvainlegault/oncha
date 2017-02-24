@@ -1,0 +1,94 @@
+# ऊंचा Oncha Id
+Identity monad implmentation
+
+## usage
+``` bash
+yarn add oncha.id
+```
+
+``` JavaScript
+import Id from 'oncha.id'
+
+Id(5)
+  .map(num => num * 7)
+  .map(num => num - 1)
+  .fold(console.log)
+//=> 34
+```
+
+# ऊंचा Oncha Maybe
+Maybe monad implmentation
+
+## usage
+``` bash
+yarn add oncha.maybe
+```
+
+``` JavaScript
+import Maybe from 'oncha.maybe'
+
+// Maybe of a string
+Maybe('Hello exalted one')
+  .map(sentence => sentence.toUpperString())
+  .map(sentence => `${sentence}!`)
+  .fold(console.log)
+//=> 'HELLO EXALTED ONE!'
+
+// Maybe of nothing
+Maybe(null)
+  .map(sentence => sentence.toUpperString())
+  .else(() => 'Maybe received a null')
+  .fold(console.log)
+//=> 'Maybe received a null'
+```
+
+# ऊंचा Oncha Either
+A Either monad implementation, includes Left, Rignt, fromNullable.
+
+## usage
+``` bash
+yarn add oncha.either
+```
+
+``` JavaScript
+import Either from 'oncha.either'
+const { Left, Right, fromNullable} = Either
+
+...
+```
+
+# ऊंचा Oncha FrozenArray
+A imutable array implementation of with head, tail, fold methods.
+
+## usage
+``` bash
+yarn add oncha.frozen-array
+```
+
+``` JavaScript
+import Fa from 'oncha.frozen-array'
+
+Fa([2, 4, 6])
+  .map(num => num * 2)
+  .filter(num => num > 5)
+  .fold(console.log)
+//=> [8, 12]
+```
+
+# ऊंचा Oncha Maybe
+Compose implmentation, takes n functions as parameters and return a function.
+
+## usage
+``` bash
+yarn add oncha.compose
+```
+
+``` JavaScript
+import compose from 'oncha.compose'
+
+const transform = compose(sentence => sentence.toUpperString(), sentence => `${sentence}!`)
+const logTransform = compose(log, transform)
+
+logTransform('Hello exalted one')
+//=> 'HELLO EXALTED ONE!'
+```

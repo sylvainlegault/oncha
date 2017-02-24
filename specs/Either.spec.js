@@ -1,11 +1,6 @@
 import assert from 'assert'
-import { Either, Right, Left, fromNullable } from '../src/Either'
-
-const Id = x => ({
-  fold: f => f(x),
-})
-
-Id.of = x => Id(x)
+import Id from '../package/id'
+import { Either, Right, Left, fromNullable } from '../package/either'
 
 describe('A Either', () => {
   it('should not call the map function when created from nullable', () => {
