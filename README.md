@@ -3,13 +3,18 @@
 # ऊंचा Oncha
 A modular exalted javascript monadic library & functional fun.
 
-## Road Map
-- add fantasy land specs
-- add task/IO monad
-- add future monad
+## All the things that cats can contributed to
+- meow
+- lick paws
+- sleep
 
-## TODO
-- on successful tests publish to npm
+## and for humans
+- add laws, for functor, monad, monoid, semigroup, etc.
+- add specs for the laws foreach module
+- add oncha.io
+- add oncha.future
+- add partial application to all relevant modules
+- add publish to npm on test pass
 
-## IMPORTANT
-Do not use MAJOR and MINOR, only increment the PATCH for versionning of packages
+## GUIDELINES
+- Do not use MAJOR and MINOR, only increment the PATCH for versionning of packages
