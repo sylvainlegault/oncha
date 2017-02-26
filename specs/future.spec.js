@@ -19,8 +19,10 @@ describe('A Future', () => {
        * map function call.
        */
       let executed = false
-      const f = Future((reject, resolve) =>
-        (executed = true, resolve(true)))
+      const f = Future((reject, resolve) => {
+        executed = true
+        resolve(true)
+      })
 
       assert(!executed)
 
