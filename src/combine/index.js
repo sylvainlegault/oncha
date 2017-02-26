@@ -1,4 +1,5 @@
 import safe from 'safe'
+import assign from 'object/assign'
 
 // combineReducer :: (Object, Object) -> Object
 const combineReducer = (acc, item) => assign(acc, item)

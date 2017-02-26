@@ -13,3 +13,5 @@ export const apply =
     eq =>
       () =>
         (y => eq(y.ap(y.ap(y.map(compose))), y.ap(y).ap(y)))(t.of(identity))
+
+export default apply
