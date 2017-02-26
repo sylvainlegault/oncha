@@ -12,6 +12,7 @@ module.exports = {
     'console/log':          './console/log.js',
     'either':               './either/index.js',
     'frozenArray':          './frozenArray/index.js',
+    'future':               './future/index.js',
     'id':                   './id/index.js',
     'map':                  './map/index.js',
     'maybe':                './maybe/index.js',
@@ -25,6 +26,7 @@ module.exports = {
     'string/lastIndexOf':   './string/lastIndexOf.js',
     'string/parse':         './string/parse.js',
     'string/split':         './string/split.js',
+    'string/toUpperCase':   './string/toUpperCase.js',
     'string/trim':          './string/trim.js',
     /* eslint-enable quote-props, key-spacing */
   },
