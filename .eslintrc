@@ -16,6 +16,6 @@
   },
   "globals": {
     "it": true,
-    "describe": false
+    "describe": true
   }
 }
