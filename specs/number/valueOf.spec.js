@@ -1,20 +1,7 @@
 import assert from 'assert'
-import Id from '../../package/id'
-import parse from '../../package/number/parse'
+import compose from '../../package/compose'
+import valueOf from '../../package/number/valueOf'
 
-describe('A parse', () => {
-  it('shoud always return 1', () =>
-    Id(1).map(parse).map(a => a === 1).map(assert))
-
-  it('shoud always return 0', () =>
-    Id(0).map(parse).map(a => a === 0).map(assert))
-
-  it('shoud always return 0', () =>
-    Id('').map(parse).map(a => a === 0).map(assert))
-
-  it('shoud always return 0', () =>
-    Id().map(parse).map(a => a === 0).map(assert))
-
-  it('shoud always return 0', () =>
-    Id(null).map(parse).map(a => a === 0).map(assert))
-})
+describe('A valueOf', () =>
+  it('shoud always return valueOf', () =>
+    compose(assert, x => x === 3.14, valueOf)(3.14)))
