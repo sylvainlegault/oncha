@@ -23,20 +23,16 @@ describe('A Maybe', () => {
 
   describe('with a value', () => {
     it('will be transformed by a map', () =>
-      helloBill.map(value => value.length)
-        .fold(x => assert(x === 10)))
+      helloBill.map(value => value.length).fold(x => assert(x === 10)))
 
     it('will be transformed by a chain', () =>
-      helloBill.chain(() => Maybe('Hello'))
-        .fold(x => assert(x === 'Hello')))
+      helloBill.chain(() => Maybe('Hello')).fold(x => assert(x === 'Hello')))
 
     it('will be transformed by a map', () =>
-      assert(helloBill.map(() => 'Hello')
-        .fold(x => x === 'Hello')))
+      assert(helloBill.map(() => 'Hello').fold(x => x === 'Hello')))
 
     it('will be transformed by a chain', () =>
-      assert(helloBill.chain(() => Maybe('Hello'))
-        .fold(x => x) === 'Hello'))
+      assert(helloBill.chain(() => Maybe('Hello')).fold(x => x) === 'Hello'))
 
     it('will return the value when else() is called', () => {
       assert(helloBill.else(() => 'no no!').fold(x => x) === 'Hello Bill')
@@ -48,12 +44,11 @@ describe('A Maybe', () => {
   })
 
   describe('complies with FantasyLand spec for', () => {
-    it("'of'", () =>
-      Maybe().of('hello')
-        .fold(x => assert(x === 'hello')))
+    it("'of'", () => Maybe().of('hello').fold(x => assert(x === 'hello')))
 
     it("'chain'", () => {
-      Maybe('a').of('hello')
+      Maybe('a')
+        .of('hello')
         .chain(a => Maybe().of(`${a} world`))
         .fold(x => assert(x === 'hello world'))
     })

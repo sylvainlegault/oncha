@@ -16,22 +16,17 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "yarn lint && yarn build && yarn test:specs",
+    "test": "yarn format && yarn build && yarn test:specs",
     "test:specs": "./node_modules/.bin/mocha --recursive --compilers js:mocha-traceur specs/**",
     "test:watch": "./node_modules/.bin/mocha --recursive -w --compilers js:mocha-traceur specs/**",
     "build": "./node_modules/.bin/webpack",
     "build:watch": "./node_modules/.bin/webpack --watch",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "format": "./node_modules/.bin/nextformat"
   },
   "devDependencies": {
-    "eslint": "^3.13.1",
-    "eslint-config-airbnb": "^14.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
-    "eslint-plugin-react": "^6.9.0",
     "mocha": "^3.2.0",
     "mocha-traceur": "^2.1.0",
+    "next-format": "^0.0.8",
     "traceur": "^0.0.111",
     "webpack": "2.2.0-rc.5"
   }

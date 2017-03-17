@@ -4,32 +4,17 @@ import parse from '../../package/number/parse'
 
 describe('A parse', () => {
   it('shoud always return 1', () =>
-    Id(1)
-      .map(parse)
-      .map(a => a === 1)
-      .map(assert))
+    Id(1).map(parse).map(a => a === 1).map(assert))
 
   it('shoud always return 0', () =>
-    Id(0)
-      .map(parse)
-      .map(a => a === 0)
-      .map(assert))
+    Id(0).map(parse).map(a => a === 0).map(assert))
 
   it('shoud always return 0', () =>
-    Id('')
-      .map(parse)
-      .map(a => a === 0)
-      .map(assert))
+    Id('').map(parse).map(a => a === 0).map(assert))
 
   it('shoud always return 0', () =>
-    Id()
-      .map(parse)
-      .map(a => a === 0)
-      .map(assert))
+    Id().map(parse).map(a => a === 0).map(assert))
 
   it('shoud always return 0', () =>
-    Id(null)
-      .map(parse)
-      .map(a => a === 0)
-      .map(assert))
+    Id(null).map(parse).map(a => a === 0).map(assert))
 })

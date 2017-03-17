@@ -6,27 +6,20 @@ import { associativity } from '../src/laws/chain'
 
 describe('A Id', () => {
   describe('as a monad', () => {
-    const eq =
-      (a, b) =>
-        assert(a.inspect() === b.inspect())
+    const eq = (a, b) => assert(a.inspect() === b.inspect())
 
-    it('is an identity', () =>
-      identity(Id.of)(eq)('Functional fun!'))
+    it('is an identity', () => identity(Id.of)(eq)('Functional fun!'))
 
     it('is composable', () =>
       composition(Id.of)(eq)(x => x)(x => x)('Functional fun!'))
 
-    it('can do maths', () =>
-      composition(Id.of)(eq)(x => x * 2)(x => x * 7)(3))
+    it('can do maths', () => composition(Id.of)(eq)(x => x * 2)(x => x * 7)(3))
 
-    it('is associative', () =>
-      associativity(Id)(eq)(7))
+    it('is associative', () => associativity(Id)(eq)(7))
   })
 
   it('will map to uppercase', () => {
-    Id('Simon')
-      .map(x => x.toUpperCase())
-      .fold(x => assert.equal(x, 'SIMON'))
+    Id('Simon').map(x => x.toUpperCase()).fold(x => assert.equal(x, 'SIMON'))
   })
 
   it('of will return a new Id', () => {
@@ -37,8 +30,7 @@ describe('A Id', () => {
     assert.equal(Id('Simon').inspect(), 'Id(Simon)')
   })
 
-  it('will be exactly 11', () =>
-    assert(Id(11).fold(x => x) === 11))
+  it('will be exactly 11', () => assert(Id(11).fold(x => x) === 11))
 
   it('will be exactly 12 when map is called', () => {
     const value = Id(11).map(value => value + 1).fold(x => x)

@@ -1,17 +1,11 @@
 // ƒ -> ƒ
-const fork =
-  action =>
-    (error, success) =>
-      action(error, success)
+const fork = action => (error, success) => action(error, success)
 
 // chain :: ƒ -> (ƒ -> Future)
-const chain =
-  action =>
-    func =>
-      Future((reject, resolve) =>
-        fork(action)(
-          e => reject(e),
-          data => func(data).fork(reject, resolve)))
+const chain = action =>
+  func =>
+    Future((reject, resolve) =>
+      fork(action)(e => reject(e), data => func(data).fork(reject, resolve)))
 
 // Future :: ƒ -> Future
 const Future = action => ({

@@ -1,8 +1,7 @@
 import isNull from 'isNull'
 
 // fromNullable :: Any -> Left | Right
-export const fromNullable = x =>
-  (isNull(x) ? Left : Right)(x)
+export const fromNullable = x => (isNull(x) ? Left : Right)(x)
 
 // Right :: Any -> Right
 export const Right = x => ({
@@ -39,10 +38,10 @@ export const Left = x => ({
 Left.of = x => Left(x)
 
 // Either :: Either
-export const Either = ({
+export const Either = {
   fromNullable,
   Left,
   Right,
-})
+}
 
 export default Either
