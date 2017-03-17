@@ -9,7 +9,7 @@ yarn add oncha
 # ऊंचा Oncha Id
 Identity monad implementation.
 
-``` JavaScript
+``` javascript
 import Id from 'oncha/id'
 
 Id(5)
@@ -22,7 +22,7 @@ Id(5)
 # ऊंचा Oncha Maybe
 Maybe monad implementation.
 
-``` JavaScript
+``` javascript
 import Maybe from 'oncha/maybe'
 
 // Maybe of a string
@@ -43,7 +43,7 @@ Maybe(null)
 # ऊंचा Oncha Either
 An Either monad implementation includes Left, Right, fromNullable.
 
-``` JavaScript
+``` javascript
 import Either from 'oncha/either'
 const { Left, Right, fromNullable } = Either
 ...
@@ -52,7 +52,7 @@ const { Left, Right, fromNullable } = Either
 # ऊंचा Oncha FrozenArray
 An immutable array implementation of with head, tail, fold methods.
 
-``` JavaScript
+``` javascript
 import Fa from 'oncha/frozenArray'
 
 Fa([2, 4, 6])
@@ -65,7 +65,7 @@ Fa([2, 4, 6])
 # ऊंचा Oncha Compose
 Compose implementation, takes n functions as parameters and return a function.
 
-``` JavaScript
+``` javascript
 import compose from 'oncha/compose'
 
 const transform = compose(sentence => sentence.toUpperString(), sentence => `${sentence}!`)
