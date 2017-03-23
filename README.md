@@ -8,6 +8,7 @@ A modular exalted javascript monadic library & functional fun.
 
 ## All the things that can contributed to
 - add IO Monad
+- add List Monad
 - add partial application to all relevant modules
 - add publish to npm on test pass
 
