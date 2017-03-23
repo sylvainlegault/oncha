@@ -3,10 +3,11 @@
 # ऊंचा Oncha
 A modular exalted javascript monadic library & functional fun.
 
+# Docs
+[here](https://github.com/aldo-dev/oncha/tree/master/package)
+
 ## All the things that can contributed to
-- add laws, for functor, monad, monoid, semigroup, etc.
-- add specs for the laws foreach module
-- add oncha.io
+- add IO Monad
 - add partial application to all relevant modules
 - add publish to npm on test pass
 

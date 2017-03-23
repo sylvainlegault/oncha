@@ -1,5 +1,5 @@
 import compose from 'compose'
-import map from 'map'
+import map from 'array/map'
 import parse from 'string/parse'
 
 // parseArgs :: [Any] -> [String]
