@@ -39,10 +39,19 @@ module.exports = {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
   },
-  module: {},
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        include: [path.resolve('./src')],
+        exclude: /(node_modules|bower_components)/,
+        use: [{ loader: 'babel-loader' }],
+      },
+    ],
+  },
   resolve: {
     extensions: ['.js'],
-    modules: [path.resolve('./src'), path.resolve('./node_modules')],
+    modules: [path.resolve('src'), 'node_modules'],
   },
   plugins: [
     // new webpack.optimize.UglifyJsPlugin(),

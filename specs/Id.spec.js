@@ -52,12 +52,12 @@ describe('A Id', () => {
     assert(value === 12)
   })
 
-  it('Id.of || pure, shoud be 12', () => {
+  it('Id.of || pure, should be 12', () => {
     const value = Id(17).of(12).fold(x => x)
     assert(value === 12)
   })
 
-  it('Id.chain, shoud be 12', () => {
+  it('Id.chain, should be 12', () => {
     const value = Id(Id(12)).chain(x => x).fold(x => x)
     assert(value === 12)
   })

@@ -3,5 +3,5 @@ import compose from '../../package/compose'
 import toFixed from '../../package/number/toFixed'
 
 describe('A toFixed', () =>
-  it('shoud always return 3', () =>
+  it('should always return 3', () =>
     compose(assert, x => x === '3', toFixed)(3.14)))
