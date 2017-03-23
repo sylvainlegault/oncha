@@ -5,6 +5,10 @@ const path = require('path')
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
+    'array/filter': './array/filter/index.js',
+    'array/map': './array/map/index.js',
+    'array/reduce': './array/reduce/index.js',
+    'array/reduceRight': './array/reduce/index.js',
     combine: './combine/index.js',
     compose: './compose/index.js',
     'compose/map': './compose/map.js',
@@ -13,9 +17,6 @@ module.exports = {
     frozenArray: './frozenArray/index.js',
     future: './future/index.js',
     id: './id/index.js',
-    'array/map': './array/map/index.js',
-    'array/reduce': './array/reduce/index.js',
-    'array/filter': './array/filter/index.js',
     maybe: './maybe/index.js',
     'number/parse': './number/parse.js',
     'number/toExponential': './number/toExponential.js',
