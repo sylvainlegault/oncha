@@ -5,10 +5,12 @@ const path = require('path')
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
+    array: './array/index.js',
     'array/filter': './array/filter/index.js',
     'array/map': './array/map/index.js',
     'array/reduce': './array/reduce/index.js',
     'array/reduceRight': './array/reduce/index.js',
+    length: './length/index.js',
     combine: './combine/index.js',
     compose: './compose/index.js',
     'compose/map': './compose/map.js',
