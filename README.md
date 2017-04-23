@@ -3,12 +3,10 @@
 # ऊंचा Oncha
 A modular exalted javascript monadic library & functional fun.
 
-# Docs
-[here](https://github.com/aldo-dev/oncha/tree/master/package)
+
+[Read the docs here](https://github.com/aldo-dev/oncha/tree/master/package)
 
 ## All the things that can contributed to
-- add IO Monad
-- add List Monad
 - add partial application to all relevant modules
 - add publish to npm on test pass
 

@@ -5,7 +5,8 @@ const isFunction = func =>
   !!(func && func.constructor && func.call && func.apply)
 
 // List :: Array -> List
-const List = array => Id(Array.isArray(array) ? array : []).chain(list => ({
+const List = array =>
+  Id(Array.isArray(array) ? array : []).chain(list => ({
     // head :: () -> List
     head: () => List(list.slice(0, 1)),
     // tail :: () -> List
@@ -23,7 +24,7 @@ const List = array => Id(Array.isArray(array) ? array : []).chain(list => ({
     // filter :: (Any -> Boolean) -> List
     filter: f => List(list.filter(f)),
     // includes :: Any -> Boolean
-    includes: x => list.includes(x),
+    includes: x => list.indexOf(x) !== -1,
     // indexOf :: Any -> Number
     indexOf: x => list.indexOf(x),
     // inspect :: () -> String

@@ -1,6 +1,7 @@
 import assert from 'assert'
-import toUpperCase from '../package/string/toUpperCase'
 import Future from '../package/future'
+
+const toUpperCase = s => s.toUpperCase()
 
 describe('A Future', () => {
   it('should map over the data', () =>

@@ -17,12 +17,12 @@
     "node": ">=6"
   },
   "scripts": {
-    "test": "yarn format && yarn build && yarn test:specs",
+    "test": "yarn build && yarn test:specs",
     "test:specs": "./node_modules/.bin/mocha --recursive --compilers js:babel-core/register specs/**",
     "test:watch": "./node_modules/.bin/mocha --recursive -w --compilers js:babel-core/register specs/**",
     "build": "./node_modules/.bin/webpack",
     "build:watch": "./node_modules/.bin/webpack --watch",
-    "format": "./node_modules/.bin/nextformat"
+    "format": "cd src/ && ../node_modules/.bin/nextformat && cd .."
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
