@@ -1,4 +1,6 @@
 Simon Deshaies,
 Ysael Pepin,
-Guillaume martin,
+Guillaume Martin,
 Jean-Francois Dube,
+Olivier Leduc,
+Olivier Melancon
