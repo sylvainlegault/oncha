@@ -22,8 +22,8 @@ Right.of = x => Right(x)
 
 // Left :: Any -> Left
 export const Left = x => ({
-  // chain :: ƒ -> Monad
-  chain: f => f(x),
+  // chain :: ƒ -> Left
+  chain: () => Left(x),
   // map :: ƒ -> Left
   map: () => Left(x),
   // fold :: (ƒ, ƒ) -> Any
