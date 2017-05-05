@@ -1,20 +1,29 @@
-// ƒ -> ƒ
-const fork = action => (error, success) => action(error, success)
+// fork :: (ƒ -> ƒ -> Any) -> ƒ -> ƒ -> Future
+const fork = action => (error, success) => Future.of(action(error, success))
 
-// chain :: ƒ -> (ƒ -> Future)
+// chain :: (ƒ -> ƒ -> Any) -> (Any -> Future) -> Future
 const chain = action =>
   func =>
     Future((reject, resolve) =>
       fork(action)(e => reject(e), data => func(data).fork(reject, resolve)))
 
-// Future :: ƒ -> Future
+// Future :: (ƒ -> ƒ -> Any) -> Future
 const Future = action => ({
+  // map :: (Any -> Any) -> Future
   map: func => chain(action)(x => Future.of(func(x))),
+
+  // chain :: (Any -> Future) -> Future
   chain: chain(action),
+
+  // fork :: ƒ -> ƒ -> Any
   fork: fork(action),
 })
 
-// Any -> Future
+// of :: Any -> Future
 Future.of = x => Future((reject, resolve) => resolve(x))
+
+// fromPromise :: Promise -> Future
+Future.fromPromise = promise =>
+  Future((reject, resolve) => promise.then(resolve, reject))
 
 export default Future
