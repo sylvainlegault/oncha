@@ -52,15 +52,13 @@ const { Left, Right, fromNullable } = Either
 Either.fromNullable('Hello') // this will return a Right('Hello')
   .fold(
     () => 'Oops',
-    val => `${val} world!`
-  )
+    val => `${val} world!`)
 //=> 'Hello world!'
 
 Either.fromNullable(null) // this will return a Left(null)
   .fold(
     () => 'Oops',
-    val => `${val} world!`
-  )
+    val => `${val} world!`)
 //=> 'Oops'
 
 const extractEmail = obj => obj.email ? Right(obj.email) : Left()
@@ -68,16 +66,14 @@ extractEmail({ email: 'test@example.com' }
   .map(extractDomain)
   .fold(
     () => 'No email found!',
-    x => x
-  )
+    x => x)
 //=> 'example.com'
 
 extractEmail({ name: 'user' }
   .map(extractDomain) // this will not get executed
   .fold(
     () => 'No email found!',
-    x => x
-  )
+    x => x)
 //=> 'No email found!'
 ```
 
@@ -107,16 +103,14 @@ Future((reject, resolve) => resolve('Yay'))
   .map(res => res.toUpperString())
   .fork(
     err => log(`Err: ${err}`),
-    res => log(`Res: ${res}`)
-  )
+    res => log(`Res: ${res}`))
 //=> 'YAY'
 
 // Handle promises
 Future.fromPromise(fetch('https://api.awesome.com/catOfTheDay'))
   .fork(
     err => log('There was an error fetching the cat of the day :('),
-    cat => log('Cat of the day: ' + cat)
-  )
+    cat => log('Cat of the day: ' + cat))
 //=> 'Cat of the day: Garfield'
 
 // Chain http calls
@@ -124,8 +118,7 @@ Future.fromPromise(fetch('https://api.awesome.com/catOfTheDay'))
   .chain(cat => Future.fromPromise(fetch(`https://api.catfacts.com/${cat}`)))
   .fork(
     err => log('There was an error fetching the cat of the day :('),
-    facts => log('Facts for cat of the day: ' + facts)
-  )
+    facts => log('Facts for cat of the day: ' + facts))
 //=> 'Facts for cat of the day: Garfield is awesome.'
 
 ```
