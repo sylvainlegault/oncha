@@ -1,8 +1,8 @@
 import Id from 'id'
+import curry from 'curry'
 
 // isFunction :: Any -> Boolean
-const isFunction = func =>
-  !!(func && func.constructor && func.call && func.apply)
+const isFunction = func => !!(func && func.constructor && func.call && func.apply)
 
 // List :: Array -> List
 const List = array =>
@@ -12,7 +12,7 @@ const List = array =>
     // tail :: () -> List
     tail: () => List(list.slice(1)),
     // fold :: (Any -> Any) -> Array
-    fold: f => isFunction(f) ? f(list) : list,
+    fold: (f = a => a) => (isFunction(f) ? f(list) : list),
     // nth :: Number -> Any
     nth: x => list[x],
     // concat :: List... -> List
@@ -42,11 +42,11 @@ const List = array =>
     // reverse :: () -> List
     reverse: () => List(list.reverse()),
     // slice :: Number -> Number -> List
-    slice: begin => end => List(list.slice(begin, end)),
+    slice: curry((begin, end) => List(list.slice(begin, end))),
     // some :: (Any -> Boolean) -> Boolean
     some: f => list.some(f),
     // of :: Array -> List
-    of: List,
+    of: List
   }))
 
 // Array -> List
