@@ -42,7 +42,7 @@ yarn add oncha
 | [Maybe](#maybe)   |    **✔︎**     |      **✔︎**       |    **✔︎**     |                |     **✔︎**    |     **✔︎**    |   **✔︎**    |     **✔︎**     |
 | [List](#list)     |    **✔︎**     |                  |    **✔︎**     |     **✔︎**      |     **✔︎**    |     **✔︎**    |            |     **✔︎**     |
 
-* There is a divergence form fanasy land where `reduce` is named `fold` for some types.
+* There is a divergence form fantasy land where `reduce` is named `fold` for some types.
 
 ## All
 These functions are available on all types.
