@@ -21,6 +21,10 @@ describe('A Either', () => {
 
   it('should build left', () => assert.equal(Left('Exalted').inspect(), 'Left(Exalted)'))
 
+  it('should default fold right to identity', () => assert.equal(Either.fromNullable('identity').fold(x => 'asd'), 'identity'))
+
+  it('should default fold left to identity', () => assert.equal(Either.fromNullable(null).fold(), null))
+
   describe('as a Setoid', () => {
     const rightA = Right(2)
     const rightB = Right(2)
