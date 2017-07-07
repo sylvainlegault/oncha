@@ -27,4 +27,25 @@ Future.of = x => Future((reject, resolve) => resolve(x))
 Future.fromPromise = promise =>
   Future((reject, resolve) => Future.fromPromise(promise.then(resolve, reject)))
 
+// countSparse :: Array -> Number
+const countSparse = arr => arr.filter(x => x !== undefined).length
+
+// all :: [Future] -> Future
+const all = futures =>
+  Future((left, right, errored = false) =>
+    futures.reduce(
+      (results, future, i) =>
+        (future.fork(
+          error => !errored && ((errored = true), left(error)),
+          result =>
+            ((results[i] = result), !errored &&
+              countSparse(results) === futures.length &&
+              right(results))
+        ), results),
+      []
+    ))
+
+// all :: [Future] -> Future
+Future.all = (...futures) => all([].concat(...futures))
+
 export default Future

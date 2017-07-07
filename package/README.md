@@ -308,6 +308,23 @@ Future.fromPromise(fetch('https://api.awesome.com/catOfTheDay'))
 //=> 'Facts for cat of the day: Garfield is awesome.'
 ```
 
+### all
+Forks all the futures.
+```
+all :: ([Futures]) -> b
+```
+```javascript
+Future.all(
+  Future.of('apple'),
+  Future((left, right) => setTimeout(() => right('orange'), 1000)),
+  Future.of('lemon')
+).fork(
+  () => (),
+  ([ apple, orange, lemon ]) =>
+    //=> apple, orange, lemon
+)
+```
+
 ### fold
 [Foldable][6]
 ```
