@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "main": "index.js",
-  "author": "Simon Deshaies (@pre63)",
+  "author": "Aldo group",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=6"
