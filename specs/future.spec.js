@@ -20,10 +20,10 @@ describe('A Future', () => {
 
   it('should not execute untill fork is called', () => {
     /**
-       * I'm using assignment here because I
-       * have to track as a side effect, the
-       * map function call.
-       */
+     * I'm using assignment here because I
+     * have to track as a side effect, the
+     * map function call.
+     */
     let executed = false
     const f = Future((reject, resolve) => {
       executed = true
@@ -42,10 +42,10 @@ describe('A Future', () => {
 
   it('should not execute map untill fork is called', () => {
     /**
-       * I'm using assignment here because I
-       * have to track as a side effect, the
-       * map function call.
-       */
+     * I'm using assignment here because I
+     * have to track as a side effect, the
+     * map function call.
+     */
     let executed = false
     const f = Future((reject, resolve) => {
       executed = true
@@ -127,6 +127,50 @@ describe('A Future', () => {
           apple === 'apple' && orange === 'orange' && lemon === 'lemon'
             ? done()
             : done(`fruits not are as expected; ${apple}, ${orange}, ${lemon}`))
+    })
+  })
+
+  describe('convert to promise', function() {
+    it('should convert a left to a catch', done => {
+      Future(left => left('should be reject'))
+        .promise()
+        .then(val => done(`${val} should not be called`))
+        .catch(val => {
+          assert(val === 'should be reject')
+          done()
+        })
+    })
+
+    it('should convert a left and ignore map to a catch', done => {
+      Future(left => left('should be reject'))
+        .map(data => data + ' after map')
+        .promise()
+        .then(val => done(`${val} should not be called`))
+        .catch(val => {
+          assert(val === 'should be reject')
+          done()
+        })
+    })
+
+    it('should convert a right to a then', done => {
+      Future((left, right) => right('should be resolve'))
+        .promise()
+        .then(val => {
+          assert(val === 'should be resolve')
+          done()
+        })
+        .catch(val => done(`${val} should not be called`))
+    })
+
+    it('should convert a right and map to a then', done => {
+      Future((left, right) => right('should be resolve'))
+        .map(data => data + ' after map')
+        .promise()
+        .then(val => {
+          assert(val === 'should be resolve after map')
+          done()
+        })
+        .catch(val => done(`${val} should not be called`))
     })
   })
 })

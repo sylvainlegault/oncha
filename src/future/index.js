@@ -8,6 +8,9 @@ const chain = action => func =>
   Future((reject, resolve) =>
     fork(action)(e => reject(e), data => func(data).fork(reject, resolve)))
 
+// promise:: f -> () -> Promise(f)
+const promise = action => () => new Promise((resolve, reject) => action(reject, resolve))
+
 // Future :: (ƒ -> ƒ -> Any) -> Future
 const Future = action => ({
   // map :: (Any -> Any) -> Future
@@ -17,7 +20,9 @@ const Future = action => ({
   // fork :: ƒ -> ƒ -> Any
   fork: fork(action),
   // fold:: (a -> a) -> a
-  fold: (f = a => a) => action(f, f)
+  fold: (f = a => a) => action(f, f),
+  // promise:: f -> () -> Promise(f)
+  promise: promise(action)
 })
 
 // of :: Any -> Future
@@ -34,14 +39,14 @@ const countSparse = arr => arr.filter(x => x !== undefined).length
 const all = futures =>
   Future((left, right, errored = false) =>
     futures.reduce(
-      (results, future, i) =>
-        (future.fork(
+      (results, future, i) => (
+        future.fork(
           error => !errored && ((errored = true), left(error)),
-          result =>
-            ((results[i] = result), !errored &&
-              countSparse(results) === futures.length &&
-              right(results))
-        ), results),
+          result => (
+            (results[i] = result),
+            !errored && countSparse(results) === futures.length && right(results))),
+        results
+      ),
       []
     ))
 
